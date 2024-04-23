@@ -1,7 +1,7 @@
 /* 
 Author: Lathika Herath
 Date: 2024-04-18
-Purpose: Virta Assignment 
+Purpose: Virta Assignment edited
 */
 
 async function sendRequest(
