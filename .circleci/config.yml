@@ -6,19 +6,12 @@ jobs:
       - image: circleci/node:lts  # Use a Node.js image with LTS version
     steps:
       - checkout #code fetch from the git current branch
-
-      # Install dependencies
       - name: Install typescript globally
         run: npm intall -g typescript 
-
       - name: Compile virtaAssignment.ts
         run: tsc --target esnext virtaAssignment.ts  # Compile only the virtaAssignment.ts file
-
-      # Run the compiled TypeScript file
       - name: Run virtaAssignment.js
-        run: node virtaAssignment.js  # Assuming output is in 'dist' directory
-
-# This section defines workflows to run the jobs
+        run: node virtaAssignment.js  
 workflows:
   build-and-test:  # You can rename this workflow section if needed
     jobs:
