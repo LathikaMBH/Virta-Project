@@ -8,7 +8,7 @@ jobs:
       - checkout #code fetch from the git current branch      
       - run: 
           name: Install typescript globally
-          command: npm install -g typescript 
+          command: sudo npm install -g typescript 
       - run:  
           name: Compile virtaAssignment.ts
           command: tsc --target esnext virtaAssignment.ts  # Compile only the virtaAssignment.ts file
