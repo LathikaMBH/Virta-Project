@@ -1,14 +1,14 @@
 /* 
 Author: Lathika Herath
 Date: 2024-04-18
-Purpose: Virta Assignment edited
+Purpose: Virta Assignment 
 */
 
 async function sendRequest(
     stationID: number | null,
     command: string | null,
     payload?: number | string | null
-  ): Promise<any> {
+  ) {
     const url = `https://api-energy-k8s.test.virtaglobal.com/v1/tests/${stationID}`;
     const body = { command, payload };
   
@@ -31,7 +31,7 @@ async function sendRequest(
     }
   }
   
-  async function testStationProcess(stationID: number | null): Promise<void> {
+  async function testStationProcess(stationID: number | null): Promise<any> {
     if (stationID === null) {
       console.log("Station value is null");
       return;
