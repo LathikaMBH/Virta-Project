@@ -5,13 +5,16 @@ jobs:
     docker:
       - image: circleci/node:lts  # Use a Node.js image with LTS version
     steps:
-      - checkout #code fetch from the git current branch
-      - name: Install typescript globally
-        run: npm intall -g typescript 
-      - name: Compile virtaAssignment.ts
-        run: tsc --target esnext virtaAssignment.ts  # Compile only the virtaAssignment.ts file
-      - name: Run virtaAssignment.js
-        run: node virtaAssignment.js  
+      - checkout #code fetch from the git current branch      
+      - run: 
+          name: Install typescript globally
+          command: npm intall -g typescript 
+      - run:  
+          name: Compile virtaAssignment.ts
+          command: tsc --target esnext virtaAssignment.ts  # Compile only the virtaAssignment.ts file
+      - run:    
+          name: Run virtaAssignment.js
+          command: node virtaAssignment.js  
 workflows:
   build-and-test:  # You can rename this workflow section if needed
     jobs:
