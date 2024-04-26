@@ -20,12 +20,26 @@ async function sendRequest(
       });
   
       if (response.status !== 200) {
-        throw new Error(
-          `Error sending request to station ${stationID}: ${response.statusText}`
-        );
-      }
+
+        //const errorData = await response.json();
+        const status = response.status;
+
+          switch ( status){
+            case 300:
+              console.log("Redirection occured");
+            case 400:
+              console.log(`Bad Request Error 400`);          
+            case 500:
+              console.log("Server error");
+            default:
+              console.log("Unexpected error");  
+
+        // throw new Error(
+        //   `Error sending request to station ${stationID}: ${response.statusText}`
+        // );
+      }}
   
-      return response.json();
+      
     } catch (error) {
       return error.message;
     }
@@ -100,7 +114,7 @@ async function sendRequest(
         setValues
         Minus values */
   
-    const setValueNegativeValues = await sendRequest(stationID, "setValues", -1);
+    const setValueNegativeValues = await sendRequest(stationID, "setValues", "");
     if (setValueNegativeValues?.result === "FAILED") {
       console.log("Test case 04: Test case is passed: value -1");
     } else {
